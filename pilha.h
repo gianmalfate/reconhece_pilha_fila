@@ -5,26 +5,25 @@
 #define ERRO_CHEIA 0
 #define SUCESSO 1
 
-//Defs gerais de t_chave, t_apontador e t_elemento (vale para pilha e fila)
-/*typedef int t_chave;
+typedef int t_chave;
 
 typedef struct t_elemento {
 	t_chave chave;
-	char nome[50];
 } t_elemento;
 
 typedef struct t_no *t_apontador;
 typedef struct t_no {
 	t_elemento elemento;
 	t_apontador proximo;
-} t_no;*/
+} t_no_pilha;
 
 typedef struct {
 	t_apontador topo;
 } t_pilha;
 
-int criar(t_pilha *pilha);
+void criar_pilha(t_pilha *pilha);
 int empilhar(t_pilha *pilha, t_elemento elemento);
 int desempilhar(t_pilha *pilha);
+void limpa_pilha(t_pilha *pilha);
 
 #endif
