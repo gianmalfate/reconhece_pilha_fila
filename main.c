@@ -3,45 +3,50 @@
 
 #include<stdio.h>
 #include<stdlib.h>
+#include"fila.h"
+#include"pilha.h"
 
 int main(){
     int quant_teste;
     scanf("%d", &quant_teste);
     int quant_op;
     char op;
-    int elem;
+    t_elemento elemento;
     int flag_pilha, flag_fila;
 
+    //for para percorrer todas as linhas da entrada (testes)
     for(int i = 0; i < quant_teste; i++){
+        //flags recebem valor 1 para iniciar o teste
         flag_fila = 1;
         flag_pilha = 1;
         scanf("%d ", &quant_op);
-        int possivel_pilha[quant_op];
-        int possivel_fila[quant_op];
-        int contador_pos_pilha = 0, contador_pos_fila = 0;
-        int inicio_fila = 0;
+        t_fila fila;
+        criar_fila(&fila);
+        
+        t_pilha pilha;
+        criar_pilha(&pilha);
+
         for(int j = 0; j < quant_op; j++){
-            scanf("%c %d ", &op, &elem);
+            scanf("%c %d ", &op, &elemento.chave);
             if(op == 'i'){
-                possivel_pilha[contador_pos_pilha] = elem;
-                possivel_fila[contador_pos_fila] = elem;
-                contador_pos_pilha++;
-                contador_pos_fila++;
+                enfileirar(&fila, elemento);
+                empilhar(&pilha, elemento);
             } else if(op == 'r'){
-                if(flag_pilha == 1){//se ainda puder ser pilha
-                    flag_pilha = testa_FIFO();
-                    if(flag_pilha == 1){
-                        contador_pos_pilha--; //remover pela cauda
-                    }
+                int testa_fila = desenfileirar(&fila);
+                if(testa_fila != elemento.chave){
+                    flag_fila = 0;
                 }
-                if(flag_fila == 1){//se ainda puder ser fila
-                    flag_fila = testa_LIFO();
-                    if(flag_fila == 1){
-                        inicio_fila++; //remover pela cabeca
-                    }
+
+                int testa_pilha = desempilhar(&pilha);
+                if(testa_pilha != elemento.chave){
+                    flag_pilha = 0;
                 }
             }
         }
+
+        limpa_fila(&fila);
+        limpa_pilha(&pilha);
+
         //tratamento de saidas
         if(flag_pilha = 0 && flag_fila == 1){
             printf("fila\n");

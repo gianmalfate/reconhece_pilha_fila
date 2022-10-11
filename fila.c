@@ -4,7 +4,7 @@
 
 static int num_nos;
 
-int criar(t_fila *fila) {
+void criar_fila(t_fila *fila) {
 	fila->primeiro = NULL;
 	fila->ultimo = NULL;
 	num_nos = 0;
@@ -42,10 +42,17 @@ int desenfileirar(t_fila *fila) {
 
 	t_apontador aux = fila->primeiro;
 	fila->primeiro = fila->primeiro->proximo;
+	int retorno = aux;
 	free(aux);
 
 	num_nos--;
 
-	return SUCESSO;
+	return retorno;
 
+}
+
+void limpa_fila(t_fila *fila){
+	for(int i = num_nos; i > 0; i--){
+		desenfileirar(fila);
+	}
 }
