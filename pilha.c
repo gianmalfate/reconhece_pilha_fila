@@ -43,6 +43,20 @@ int desempilhar(t_pilha *pilha) {
 
 }
 
+t_no topo(t_pilha *pilha) {
+	//TODO
+	/*if (vazia(pilha))
+		return NO_VAZIO;*/ 
+	return *(pilha->topo);
+}
+
+int vazia(t_pilha *pilha) {
+	if(pilha->topo == NULL)
+		return 1;
+	else
+		return 0;
+}
+
 void limpa_pilha(t_pilha *pilha){
 	for(int i = num_nos; i > 0; i--){
 		desempilhar(pilha);
