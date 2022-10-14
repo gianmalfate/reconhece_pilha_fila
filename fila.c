@@ -51,6 +51,21 @@ int desenfileirar(t_fila *fila) {
 
 }
 
+t_no frente(t_fila *fila) {
+	//TODO
+	/*if (vazia(fila))
+		return NO_VAZIO;*/ 
+	return *(fila->primeiro);
+}
+
+int vazia(t_fila *fila) {
+	if(fila->primeiro == NULL &&
+		fila->ultimo == NULL)
+		return 1;
+	else
+		return 0;
+}
+
 void limpa_fila(t_fila *fila){
 	for(int i = num_nos; i > 0; i--){
 		desenfileirar(fila);
