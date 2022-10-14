@@ -24,6 +24,8 @@ typedef struct {
 void criar_pilha(t_pilha *pilha);
 int empilhar(t_pilha *pilha, t_elemento elemento);
 int desempilhar(t_pilha *pilha);
+t_no topo(t_pilha *pilha);
+int vazia(t_pilha *pilha);
 void limpa_pilha(t_pilha *pilha);
 
 #endif
