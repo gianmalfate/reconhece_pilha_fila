@@ -25,6 +25,7 @@ typedef struct {
 void criar_fila(t_fila *fila);
 int enfileirar(t_fila *fila, t_elemento elemento);
 int desenfileirar(t_fila *fila);
+t_no frente(t_fila *fila);
 void limpa_fila(t_fila *fila);
 
 #endif
