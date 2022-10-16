@@ -1,3 +1,9 @@
+//pila ou filha
+//Giancarlo Malfate Caprino, nUSP: 12725025
+//Henrique Gualberto Marques, nUSP: 13692380
+//Pedro Henrique Cruz da Silva, nUSP: 11833236
+//Rafael Scalon Peres Conti, nUSP: 11871181
+
 #ifndef FILA_H
 #define FILA_H
 
