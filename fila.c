@@ -1,3 +1,9 @@
+//pila ou filha
+//Giancarlo Malfate Caprino, nUSP: 12725025
+//Henrique Gualberto Marques, nUSP: 13692380
+//Pedro Henrique Cruz da Silva, nUSP: 11833236
+//Rafael Scalon Peres Conti, nUSP: 11871181
+
 #include "fila.h"
 #include <stdio.h>
 #include <stdlib.h>
@@ -8,6 +14,14 @@ void criar_fila(t_fila *fila) {
 	fila->primeiro = NULL;
 	fila->ultimo = NULL;
 	num_nos = 0;
+}
+
+int vazia(t_fila *fila) {
+	if(fila->primeiro == NULL &&
+		fila->ultimo == NULL)
+		return 1;
+	else
+		return 0;
 }
 
 int enfileirar(t_fila *fila, t_elemento elemento) {
@@ -41,13 +55,13 @@ int desenfileirar(t_fila *fila) {
 		fila->ultimo = NULL;
 
 	t_apontador aux = fila->primeiro;
+	int valor = aux->elemento.chave;
 	fila->primeiro = fila->primeiro->proximo;
-	int retorno = aux;
 	free(aux);
 
 	num_nos--;
 
-	return retorno;
+	return valor;
 
 }
 
@@ -56,14 +70,6 @@ t_no frente(t_fila *fila) {
 	/*if (vazia(fila))
 		return NO_VAZIO;*/ 
 	return *(fila->primeiro);
-}
-
-int vazia(t_fila *fila) {
-	if(fila->primeiro == NULL &&
-		fila->ultimo == NULL)
-		return 1;
-	else
-		return 0;
 }
 
 void limpa_fila(t_fila *fila){
