@@ -1,3 +1,5 @@
+#include "fila.h"
+
 #ifndef PILHA_H
 #define PILHA_H
 
@@ -5,7 +7,8 @@
 #define ERRO_CHEIA 0
 #define SUCESSO 1
 
-typedef int t_chave;
+//Definicoes comentadas, porem utilizadas do fila.h (para evitar redundancia)
+/*typedef int t_chave;
 
 typedef struct t_elemento {
 	t_chave chave;
@@ -15,7 +18,7 @@ typedef struct t_no *t_apontador;
 typedef struct t_no {
 	t_elemento elemento;
 	t_apontador proximo;
-} t_no_pilha;
+} t_no;*/
 
 typedef struct {
 	t_apontador topo;
