@@ -51,7 +51,7 @@ int main(){
         limpa_pilha(&pilha);
 
         //tratamento de saidas
-        if(flag_pilha = 0 && flag_fila == 1){
+        if(flag_pilha == 0 && flag_fila == 1){
             printf("fila\n");
         } else if(flag_pilha == 1 && flag_fila == 0){
             printf("pilha\n");
