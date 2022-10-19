@@ -8,7 +8,7 @@ fila.o: fila.c
 	@gcc fila.c -c
     
 pilha.o: pilha.c
-    @gcc pilha.c -c
+	@gcc pilha.c -c
 	
 run:
 	@./main
