@@ -9,6 +9,7 @@
 #ifndef PILHA_H
 #define PILHA_H
 
+//MENSAGENS DE RETURN
 #define NAO_ENCONTROU -1
 #define ERRO_CHEIA 0
 #define SUCESSO 1
@@ -30,10 +31,10 @@ typedef struct {
 	t_apontador topo;
 } t_pilha;
 
+//listando as funcoes a serem implementadas no pilha.c
 void criar_pilha(t_pilha *pilha);
 int empilhar(t_pilha *pilha, t_elemento elemento);
 int desempilhar(t_pilha *pilha);
-t_no topo(t_pilha *pilha);
 int vazia_pilha(t_pilha *pilha);
 void limpa_pilha(t_pilha *pilha);
 
