@@ -8,6 +8,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+//variavel estatica para acompanhar a quantidade de nos
 static int num_nos;
 
 void criar_fila(t_fila *fila) {
@@ -16,7 +17,7 @@ void criar_fila(t_fila *fila) {
 	num_nos = 0;
 }
 
-int vazia(t_fila *fila) {
+int vazia(t_fila *fila) { //testa se a fila e' vazia (primeiro e ultimo apontado para NULL)
 	if(fila->primeiro == NULL &&
 		fila->ultimo == NULL)
 		return 1;
@@ -24,34 +25,33 @@ int vazia(t_fila *fila) {
 		return 0;
 }
 
-int enfileirar(t_fila *fila, t_elemento elemento) {
+int enfileirar(t_fila *fila, t_elemento elemento) { //insere elemento no fim da fila
 
 	t_apontador novo = (t_apontador) malloc(sizeof(t_no));
-	if (novo == NULL)
+	if (novo == NULL) //caso a memoria esteja cheia
 		return ERRO_CHEIA;
-
+	
 	novo->elemento = elemento;
 	novo->proximo = NULL;
-	
+	//caso a fila esteja vazia
 	if (vazia(fila)) {
 		fila->primeiro = novo;
-	} else {
+	} else { //caso a fila nao esteja vazia
 		fila->ultimo->proximo = novo;
 	}
 	fila->ultimo = novo;
-	num_nos++;
+	num_nos++; //atualiza o numero de nos
 
 	return SUCESSO;
 
 }
 
-
 int desenfileirar(t_fila *fila) {
 
-	if (vazia(fila)) 
+	if (vazia(fila)) //caso a fila esteja vazia
 		return NAO_ENCONTROU;
 
-	if (fila->primeiro == fila->ultimo) // unitaria
+	if (fila->primeiro == fila->ultimo) // caso a fila seja unitaria
 		fila->ultimo = NULL;
 
 	t_apontador aux = fila->primeiro;
@@ -59,20 +59,14 @@ int desenfileirar(t_fila *fila) {
 	fila->primeiro = fila->primeiro->proximo;
 	free(aux);
 
-	num_nos--;
+	num_nos--; //atualiza o numero de nos
 
-	return valor;
+	return valor; //retorna o valor (para poder ser comparado)
 
-}
-
-t_no frente(t_fila *fila) {
-	//TODO
-	/*if (vazia(fila))
-		return NO_VAZIO;*/ 
-	return *(fila->primeiro);
 }
 
 void limpa_fila(t_fila *fila){
+	//limpa a fila, desenfileirando todos os elementos 1 a 1
 	for(int i = num_nos; i > 0; i--){
 		desenfileirar(fila);
 	}
