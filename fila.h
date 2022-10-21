@@ -7,10 +7,12 @@
 #ifndef FILA_H
 #define FILA_H
 
+//MENSAGENS DE RETURN
 #define NAO_ENCONTROU -1
 #define ERRO_CHEIA 0
 #define SUCESSO 1
 
+////definicoes de tipos:
 typedef int t_chave;
 
 typedef struct t_elemento{
@@ -28,11 +30,10 @@ typedef struct {
 	t_apontador ultimo;
 } t_fila;
 
+//listando as funcoes a serem implementadas no fila.c
 void criar_fila(t_fila *fila);
 int enfileirar(t_fila *fila, t_elemento elemento);
 int desenfileirar(t_fila *fila);
-t_no frente(t_fila *fila);
-t_no frente(t_fila *fila);
 void limpa_fila(t_fila *fila);
 
 #endif
